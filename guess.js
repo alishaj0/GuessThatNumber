@@ -52,6 +52,10 @@ while (restartGame){
 
     // Continues looping until the user guesses the correct number or runs out of attempts (Loops until a BREAK keyword is run)
     while (true){
+        if (guess === `Liam`){
+            alert(`The number is ${randomNum}`);
+            guess = prompt(`Please enter a guess between 1 and ${rangeNum}. You have ${attempts} attempt(s) left:`);
+        }
 
         // Tries to convert the user's guess into a number
         guess = parseInt(guess);
@@ -84,7 +88,33 @@ while (restartGame){
             guess = prompt(`Too high. You have ${attempts} attempt(s) left`);
         }
     }
-    break;
+
+    // Prompts user with option to play again
+    playAgain = prompt (`Would you like to play again? Y for yes. N for no.`);
+
+    // Loop continues until user submits a valid reponse
+    while (true) {
+
+        // Checks if the user's answer is no (AKA "N" or "n")
+        if (playAgain.toUpperCase() === "N"){
+
+            // Alerts user that the game is over. Game ends
+            alert(`Thanks for playing!`);
+            restartGame = false;
+            break;
+
+            // Checks if users answer is yes: "Y" or "y"
+        } else if (playAgain.toUpperCase() === "Y"){
+
+            // break to restart game
+            break;
+
+            // If user enters anything else, 
+        } else {
+            playAgain = prompt(`Please enter Y or N:`);
+        }
+        
+    }
 
 }
 
